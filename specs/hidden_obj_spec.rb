@@ -7,47 +7,42 @@ class HiddenObjTest < MiniTest::Test
 
   def setup
     hidden_word = "hello"
-    @hiddenobj_2 = HiddenObj.new(hidden_word)
-    @hiddenobj_1 = HiddenObj.new(hidden_word)
+    @hidden_obj = HiddenObj.new(hidden_word)
   end
 
   def test_hidden_name
-    assert_equal("hello", @hiddenobj_2.hidden_word)
+    assert_equal("hello", @hidden_obj.hidden_word)
   end
 
   def test_check_letter__true
-    result = @hiddenobj_2.check_letter("o")
+    result = @hidden_obj.check_letter("o")
     assert_equal(true, result )
   end
 
   def test_check_letter__false
-    result = @hiddenobj_2.check_letter("k")
+    result = @hidden_obj.check_letter("k")
     assert_equal(false, result )
   end
 
    def test_add_letter
-     result = @hiddenobj_2.add_letter("h")
-     # result = @hiddenobj_2.add_letter("o")
+     result = @hidden_obj.add_letter("h")
      assert_equal("h****", result)
-   end
-
-   def test_have_won__false
-     result = @hiddenobj_2.have_won
-     assert_equal(false, result)
+     result = @hidden_obj.add_letter("e")
+     assert_equal("he***", result)
    end
 
    def test_have_won__true
-    result = @hiddenobj_2.add_letter("l")
-    result = @hiddenobj_2.add_letter("o")
-    result = @hiddenobj_2.add_letter("h")
-    result = @hiddenobj_2.add_letter("e")
-    p @hiddenobj_2.word
-    result = @hiddenobj_2.have_won
+    result = @hidden_obj.add_letter("l")
+    result = @hidden_obj.add_letter("o")
+    result = @hidden_obj.add_letter("h")
+    result = @hidden_obj.add_letter("e")
+    result = @hidden_obj.have_won
     assert_equal(true, result)
    end
 
-
-
-
+   def test_have_won__false
+     result = @hidden_obj.have_won
+     assert_equal(false, result)
+   end
 
 end

@@ -27,18 +27,18 @@ class HiddenObj
   def add_letter(letter_to_check)
     hidden_letters = @hidden_word.split('')
     word_chars = @word.split('')
-    counter = 0
+    index = 0
 
     for letter in hidden_letters
        if letter == letter_to_check
-         word_chars[counter] = letter_to_check
+         word_chars[index] = letter_to_check
        end
-       counter += 1
-   end
+       index += 1
+     end
 
-   @word = word_chars.join()
+     @word = word_chars.join()
 
-   return @word
+     return @word
  end
 
  def have_won
