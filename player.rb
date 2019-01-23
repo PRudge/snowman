@@ -6,10 +6,9 @@ class Player
     @num_lives = num_lives
   end
 
-  def delete_player_life
-    if @num_lives > 0
-      @num_lives -= 1
-    end
+  def delete_player_life()
+    @num_lives -= 1
   end
+
 
 end
